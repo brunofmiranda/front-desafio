@@ -1,0 +1,34 @@
+.footer {
+  border-top-width: 5px;
+  border-top-style: solid;
+  border-color: #fcf82a;
+  position:fixed;
+  bottom: 0;
+  width: 100%;
+  justify-content: center;
+}
+.header {
+  text-align: center;
+  position: block;
+  border-bottom-width: 5px;
+  border-bottom-style: solid;
+  border-color: #fcf82a;
+}
+
+.titulo {
+  display: flex;
+  justify-content: center;
+}
+
+.toolbar {
+  font-size: 15px;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+
+
+
+

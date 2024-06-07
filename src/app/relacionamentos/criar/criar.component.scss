@@ -1,0 +1,16 @@
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2em;
+  height: 100%;
+  flex-direction: column;
+}
+
+.button {
+  margin-right: 20px;
+}
+.logCriacao {
+  display: none;
+}

@@ -1,0 +1,28 @@
+<div class="main-container">
+  <h1>Criar novo relacionamento</h1>
+    <mat-form-field>
+      <mat-label>Número do Processo</mat-label>
+      <input type="number" matInput [(ngModel)]="relacionamento.numProcesso" (change)="listarPessoasDisponiveis()">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Número da Pessoa</mat-label>
+      <mat-select [(ngModel)]="relacionamento.numPessoa" name="numPessoa">
+        <mat-option *ngFor="let pessoa of pessoasFiltradas" [value]="pessoa.numPessoa">
+          {{pessoa.numPessoa}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Código</mat-label>
+      <input type="number" matInput [(ngModel)]="relacionamento.codigo">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Data de Início</mat-label>
+      <input type="date" matInput [(ngModel)]="relacionamento.numProcesso" (change)="listarPessoasDisponiveis()">
+    </mat-form-field>
+    <div class="buttons">
+      <button type="submit" mat-flat-button color="accent" class="button">Criar</button>
+      <button mat-stroked-button color="primary" class="button" routerLink="/relacionamentos/consultar">Voltar</button>
+    </div>
+    <p class="logCriacao"></p>
+</div>

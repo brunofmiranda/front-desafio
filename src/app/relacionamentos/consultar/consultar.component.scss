@@ -1,0 +1,45 @@
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2em;
+  height: 100%;
+  flex-direction: column;
+}
+
+mat-card {
+  width: 50%;
+}
+table {
+  width: 100%;
+}
+.mat-column-numPessoa {
+  text-align: center;
+}
+.mat-column-numProcesso {
+  text-align: center;
+}
+.mat-column-codigo {
+  text-align: center;
+}
+.mat-column-dataInicio {
+  text-align: center;
+}
+
+.form{
+  display: flex;
+}
+
+.button {
+  margin-right: 20px;
+}
+.buttons {
+  margin-left: 30px;
+}
+
+.titulo {
+  text-align: center;
+}
+
+

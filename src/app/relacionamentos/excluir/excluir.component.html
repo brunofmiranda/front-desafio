@@ -1,0 +1,29 @@
+<div class="main-container">
+  <h2 mat-dialog-title>Excluir Relacionamento</h2>
+<mat-dialog-content>
+  Deseja realmente excluir o relacionamento?
+
+  <mat-card class="card">
+    <div class="chave">
+      <p>Numero da Pessoa:</p>
+      <p>Numero do Processo:
+      <p>Código:</p>
+      <p>Data de Início:</p>
+    </div>
+    <div class="valor">
+      <p>{{data.numPessoa}}</p>
+      <p>{{data.numProcesso}}</p>
+      <p>{{data.codigo}}</p>
+      <p>{{data.dataInicio}}</p>
+    </div>
+
+  </mat-card>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Sim</button>
+  <button mat-button mat-dialog-close cdkFocusInitial>Não</button>
+</mat-dialog-actions>
+</div>
+
+
