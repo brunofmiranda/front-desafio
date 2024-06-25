@@ -1,12 +1,12 @@
 export interface RelacionamentoResposta {
   quantidadeOcorrenciaRelacionamentos:number | null,
   indicadorContinuidadePesquisa:number | null,
-  relacionamentos: subRelacionamentoResposta[]
+  listaRelacionamentos: subRelacionamentoResposta[]
 }
 
 export interface subRelacionamentoResposta {
   codigoRelacionamento:number,
-  dataInicioRelacionamento:string,
-  nomeRazaoSocial:string
-
+  dataInicio:string,
+  nomeRazaoSocial:string,
+  numeroPessoa: number
 }

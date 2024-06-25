@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Relacionamento } from '../models/relacionamento';
+import { Relacionamento } from '../models/Relacionamento';
 import { RelacionamentosService } from '../services/relacionamentos.service';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -23,12 +23,20 @@ export class ConsultarComponent implements OnInit {
   constructor(private relacionamentosService: RelacionamentosService,public dialog: MatDialog) {}
 
   consultarRelacionamentos(){
-    this.relacionamentosService.consultar(this.numProcesso).subscribe((relacionamentos) => {this.relacionamentos$ = relacionamentos.relacionamentos})
+    this.relacionamentosService.consultar(this.numProcesso).subscribe((relacionamentos) => {this.relacionamentos$ = relacionamentos.listaRelacionamentos})
     console.log(this.relacionamentos$)
   }
 
 
-  excluir(relacionamento:Relacionamento){
+  excluir(subRelacionamentoResposta:subRelacionamentoResposta){
+
+    let relacionamento = {
+      numProcesso: this.numProcesso,
+      numPessoa: subRelacionamentoResposta.numeroPessoa,
+      codigo: subRelacionamentoResposta.codigoRelacionamento,
+      dataInicio:subRelacionamentoResposta.dataInicio 
+    }
+
     this.dialog.open(ExcluirComponent, {
       data: relacionamento
     });

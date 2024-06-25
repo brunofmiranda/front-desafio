@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Relacionamento } from '../models/relacionamento';
+import { Relacionamento } from '../models/Relacionamento';
 import { RelacionamentosService } from '../services/relacionamentos.service';
 import { listLazyRoutes } from '@angular/compiler/src/aot/lazy_routes';
 import { Observable, of } from 'rxjs';
