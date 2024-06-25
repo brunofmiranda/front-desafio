@@ -6,9 +6,9 @@
     </mat-form-field>
     <mat-form-field>
       <mat-label>Número da Pessoa</mat-label>
-      <mat-select [(ngModel)]="relacionamento.numPessoa" name="numPessoa">
-        <mat-option *ngFor="let pessoa of pessoasFiltradas" [value]="pessoa.numPessoa">
-          {{pessoa.numPessoa}}
+      <mat-select [(ngModel)]="relacionamento.numeroPessoa" name="numeroPessoa">
+        <mat-option *ngFor="let pessoa of listaPessoas" [value]="pessoa.numeroPessoa">
+          {{pessoa.numeroPessoa}} - {{pessoa.nomeRazaoSocial}}
         </mat-option>
       </mat-select>
     </mat-form-field>

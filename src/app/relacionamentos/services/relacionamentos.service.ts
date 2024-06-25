@@ -1,7 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { delay, first } from 'rxjs/operators';
 import { Relacionamento } from '../models/relacionamento';
+import { RelacionamentoResposta } from '../models/relacionamentoResposta';
+import { PessoasNaoVinculadasProcesso } from '../models/PessoasNaoVinculadasProcesso';
 
 
 @Injectable({
@@ -9,20 +11,25 @@ import { Relacionamento } from '../models/relacionamento';
 })
 export class RelacionamentosService {
 
-  private readonly APIconsulta = '/assets/relacionamentos.json';
-  private readonly APIlistaPessoas = '/assets/pessoas.json';
+  private readonly APIconsulta = 'http://localhost:8080';
+  private readonly jsonHeader = {
+    headers: new HttpHeaders({
+        "Content-type": "application/json; charset=UTF-8",
+    })
+};
 
   constructor(private httpClient: HttpClient) { }
 
-  consultar(){
-    return this.httpClient.get<Relacionamento[]>(this.APIconsulta)
-    .pipe(first(), delay(1500));}
+  consultar(numeroProcesso:number){
 
-  listarPessoasDisponiveis(numProcesso:number){
-    return this.httpClient.get<number[]>(this.APIlistaPessoas).pipe(first(), delay(1500));
+    var jsonBody = JSON.stringify({        "numeroProcesso": numeroProcesso      });
+    return this.httpClient.post<RelacionamentoResposta>(this.APIconsulta + '/op8737160v1', jsonBody, this.jsonHeader).pipe(first());
   }
 
-  excluir(numPessoa: number, numProcesso: number){
-    return this.httpClient.delete(this.APIconsulta);
+  listarPessoasNaoVinculadas(numeroProcesso:number){
+    var jsonBody = JSON.stringify({        "numeroProcesso": numeroProcesso      });
+
+    return this.httpClient.post<PessoasNaoVinculadasProcesso>(this.APIconsulta + '/Op8737566v1', jsonBody, this.jsonHeader).pipe(first());
+
   }
 }
