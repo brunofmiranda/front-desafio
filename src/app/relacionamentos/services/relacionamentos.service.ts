@@ -23,13 +23,13 @@ export class RelacionamentosService {
   consultar(numeroProcesso:number){
 
     var jsonBody = JSON.stringify({ "numeroProcesso": numeroProcesso });
-    return this.httpClient.post<RelacionamentoResposta>(this.APIconsulta + '/op8737160v1', jsonBody, this.jsonHeader).pipe(first());
+    return this.httpClient.post<RelacionamentoResposta>(this.APIconsulta + 'xx', jsonBody, this.jsonHeader).pipe(first());
   }
 
   listarPessoasNaoVinculadas(numeroProcesso:number){
     var jsonBody = JSON.stringify({ "numeroProcesso": numeroProcesso });
 
-    return this.httpClient.post<PessoasNaoVinculadasProcesso>(this.APIconsulta + '/Op8737566v1', jsonBody, this.jsonHeader).pipe(first());
+    return this.httpClient.post<PessoasNaoVinculadasProcesso>(this.APIconsulta + 'xx', jsonBody, this.jsonHeader).pipe(first());
   }
 
   excluir(relacionamento:Relacionamento){
@@ -38,6 +38,6 @@ export class RelacionamentosService {
                                     "codigoTipoRelacionamento": relacionamento.codigo
                                   });
 
-    return this.httpClient.post<string>(this.APIconsulta + '/Op8737173v1', jsonBody, this.jsonHeader).pipe(first());
+    return this.httpClient.post<string>(this.APIconsulta + 'xx', jsonBody, this.jsonHeader).pipe(first());
   }
 }
