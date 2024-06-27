@@ -11,7 +11,7 @@ import { PessoasNaoVinculadasProcesso } from '../models/PessoasNaoVinculadasProc
 })
 export class RelacionamentosService {
 
-  private readonly APIconsulta = 'http://localhost:8080';
+  private readonly APIconsulta = 'xx';
   private readonly jsonHeader = {
     headers: new HttpHeaders({
         "Content-type": "application/json; charset=UTF-8",
@@ -23,13 +23,13 @@ export class RelacionamentosService {
   consultar(numeroProcesso:number){
 
     var jsonBody = JSON.stringify({ "numeroProcesso": numeroProcesso });
-    return this.httpClient.post<RelacionamentoResposta>(this.APIconsulta + '/op8737160v1', jsonBody, this.jsonHeader).pipe(first());
+    return this.httpClient.post<RelacionamentoResposta>(this.APIconsulta + 'xx', jsonBody, this.jsonHeader).pipe(first());
   }
 
   listarPessoasNaoVinculadas(numeroProcesso:number){
     var jsonBody = JSON.stringify({ "numeroProcesso": numeroProcesso });
 
-    return this.httpClient.post<PessoasNaoVinculadasProcesso>(this.APIconsulta + '/Op8737566v1', jsonBody, this.jsonHeader).pipe(first());
+    return this.httpClient.post<PessoasNaoVinculadasProcesso>(this.APIconsulta + 'xx', jsonBody, this.jsonHeader).pipe(first());
   }
 
   excluir(relacionamento:Relacionamento){
@@ -39,5 +39,17 @@ export class RelacionamentosService {
                                   });
 
     return this.httpClient.post<string>(this.APIconsulta + '/Op8737173v1', jsonBody, this.jsonHeader).pipe(first());
+  }
+
+  incluir(relacionamento:Relacionamento){
+    var jsonBody = JSON.stringify({ "numeroPessoa":             relacionamento.numPessoa,
+                                    "numeroProcesso":           relacionamento.numProcesso,
+                                    "codigoTipoRelacionamento": relacionamento.codigo,
+                                    "dataInicioRelacionamentoPessoaProcesso": relacionamento.dataInicio
+                                  });
+    
+    return this.httpClient.post<Relacionamento>(this.APIconsulta + 'xx', jsonBody, this.jsonHeader).pipe(first());                           
+
+
   }
 }
